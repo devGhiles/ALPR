@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
-    public native String recognizeLicensePlate(long imgAddr);
+    public static native String recognizeLicensePlate(long imgAddr);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
