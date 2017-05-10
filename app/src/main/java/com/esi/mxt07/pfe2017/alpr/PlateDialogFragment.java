@@ -25,7 +25,7 @@ public class PlateDialogFragment extends DialogFragment {
 
         // Set the lp number in the edit text
         EditText etPlateNumber = (EditText) layout.findViewById(R.id.etPlateNumber);
-        etPlateNumber.setText(OldActivity.recognizeLicensePlate(0L));
+        etPlateNumber.setText(MainActivity.recognizeLicensePlate(0L));
 
         // Set a listener to the OK button
         Button btnPlateDialogOK = (Button) layout.findViewById(R.id.btnPlateDialogOK);

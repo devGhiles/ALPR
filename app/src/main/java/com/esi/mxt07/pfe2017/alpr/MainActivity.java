@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity
 
     public static native String recognizeLicensePlate(long imgAddr);
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.content_main, new RecognitionFragment())
+                .commit();
     }
 
     @Override
@@ -52,6 +59,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.recognition);
         return true;
     }
 
@@ -81,11 +90,13 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.content_main, new RecognitionFragment())
                     .commit();
+            toolbar.setTitle(R.string.recognition);
 
         } else if (id == R.id.nav_history) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_main, new HistoryFragment())
                     .commit();
+            toolbar.setTitle(R.string.history);
 
         } else if (id == R.id.nav_logout) {
 

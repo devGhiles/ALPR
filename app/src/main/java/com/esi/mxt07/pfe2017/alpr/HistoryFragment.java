@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 public class HistoryFragment extends Fragment {
 
-    private View root;
-
     public HistoryFragment() {
         // Required empty public constructor
     }
@@ -21,8 +19,7 @@ public class HistoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_history, container, false);
-        return root;
+        return inflater.inflate(R.layout.fragment_history, container, false);
     }
 
 }

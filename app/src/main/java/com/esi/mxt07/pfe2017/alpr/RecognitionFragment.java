@@ -2,17 +2,15 @@ package com.esi.mxt07.pfe2017.alpr;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 
-public class RecognitionFragment extends Fragment {
-
-    private View root;
+public class RecognitionFragment extends Fragment implements View.OnClickListener {
 
     public RecognitionFragment() {
         // Required empty public constructor
@@ -22,13 +20,18 @@ public class RecognitionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_recognition, container, false);
+        View root = inflater.inflate(R.layout.fragment_recognition, container, false);
+        FloatingActionButton fabTakePicture = (FloatingActionButton)
+                root.findViewById(R.id.fabTakePicture);
+        fabTakePicture.setOnClickListener(this);
         return root;
     }
 
-    public void onClickBtnTakePicture(View view) {
-        DialogFragment plateDialogFragment = new PlateDialogFragment();
-        plateDialogFragment.show(getActivity().getSupportFragmentManager(), "RecognitionFragment");
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fabTakePicture) {
+            DialogFragment plateDialogFragment = new PlateDialogFragment();
+            plateDialogFragment.show(getActivity().getSupportFragmentManager(), "RecognitionFragment");
+        }
     }
-
 }
