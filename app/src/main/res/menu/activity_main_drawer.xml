@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_recognition"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/recognition" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/history" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@android:drawable/stat_sys_upload_done"
+            android:title="@string/logout" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="@string/about_us" />
+    </group>
+
+    <item android:title="@string/administrator">
+        <menu>
+            <item
+                android:id="@+id/nav_users"
+                android:icon="@android:drawable/btn_star"
+                android:title="@string/users" />
+        </menu>
+    </item>
+
+</menu>

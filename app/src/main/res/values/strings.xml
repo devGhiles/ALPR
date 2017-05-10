@@ -3,4 +3,20 @@
     <string name="take_a_picture">Take a picture</string>
     <string name="plate_number">Plate number:</string>
     <string name="ok">OK</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="recognition">Recognition</string>
+    <string name="history">History</string>
+    <string name="logout">Logout</string>
+    <string name="about_us">About us</string>
+    <string name="administrator">Administrator</string>
+    <string name="users">Users</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
