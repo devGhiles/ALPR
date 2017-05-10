@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ALPR</string>
+    <string name="take_a_picture">إلتقط صورة</string>
+    <string name="plate_number">رقم اللوحة</string>
+    <string name="ok">طيب</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">إعدادات</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="recognition">التعرف</string>
+    <string name="history">التاريخ</string>
+    <string name="logout">الخروج</string>
+    <string name="about_us">معلومات عنا</string>
+    <string name="administrator">مدير</string>
+    <string name="users">المستخدمين</string>
+</resources>

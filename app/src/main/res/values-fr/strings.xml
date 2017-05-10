@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ALPR</string>
+    <string name="take_a_picture">Prendre une photo</string>
+    <string name="plate_number">Numéro de plaque :</string>
+    <string name="ok">OK</string>
+
+    <string name="navigation_drawer_open">Ouvrir le panneau glissant</string>
+    <string name="navigation_drawer_close">Fermer le panneau glissant</string>
+
+    <string name="action_settings">Paramètres</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="recognition">Reconnaissance</string>
+    <string name="history">Historique</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="about_us">À propos</string>
+    <string name="administrator">Administrateur</string>
+    <string name="users">Utilisateurs</string>
+</resources>
