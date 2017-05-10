@@ -17,4 +17,6 @@
     <string name="users">Users</string>
     <string name="splash_screen_image">Splash screen image</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="about_us_message">This application was made by the help of leprechauns</string>
+    <string name="close">Close</string>
 </resources>

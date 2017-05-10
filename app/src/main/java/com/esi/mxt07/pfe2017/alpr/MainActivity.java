@@ -1,6 +1,7 @@
 package com.esi.mxt07.pfe2017.alpr;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -101,6 +102,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout) {
 
         } else if (id == R.id.nav_about_us) {
+            DialogFragment aboutUsDialogFragment = new AboutUsDialogFragment();
+            aboutUsDialogFragment.show(getSupportFragmentManager(), "MainActivity");
 
         } else if (id == R.id.nav_users) {
 
