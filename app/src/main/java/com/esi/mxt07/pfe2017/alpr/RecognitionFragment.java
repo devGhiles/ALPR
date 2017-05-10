@@ -113,6 +113,7 @@ public class RecognitionFragment extends Fragment implements View.OnClickListene
                 if (size != null) {
                     parameters.setPreviewSize(size.width, size.height);
                     camera.setParameters(parameters);
+                    camera.setDisplayOrientation(90);
                     cameraConfigured=true;
                 }
             }
