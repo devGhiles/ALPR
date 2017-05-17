@@ -26,6 +26,10 @@
                 android:id="@+id/nav_users"
                 android:icon="@android:drawable/btn_star"
                 android:title="@string/users" />
+            <item
+                android:id="@+id/nav_stolen_cars"
+                android:icon="@android:drawable/btn_dialog"
+                android:title="@string/stolen_cars" />
         </menu>
     </item>
 
