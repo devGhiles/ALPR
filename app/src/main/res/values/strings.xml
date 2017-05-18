@@ -20,4 +20,5 @@
     <string name="about_us_message">This application was made by the help of leprechauns</string>
     <string name="close">Close</string>
     <string name="stolen_cars">Stolen cars</string>
+    <string name="stolen_cars_database_unavailable">Stolen cars database unavailable</string>
 </resources>

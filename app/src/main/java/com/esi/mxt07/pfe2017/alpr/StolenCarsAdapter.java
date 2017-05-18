@@ -1,5 +1,6 @@
 package com.esi.mxt07.pfe2017.alpr;
 
+import android.database.Cursor;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,13 +9,12 @@ import android.widget.TextView;
 
 public class StolenCarsAdapter extends RecyclerView.Adapter<StolenCarsAdapter.ViewHolder> {
 
-    private String[] stolenCarsNumbers;
+    private Cursor stolenCarsCursor;
 
-    public StolenCarsAdapter(String[] stolenCarsNumbers) {
-        this.stolenCarsNumbers = stolenCarsNumbers;
+    public StolenCarsAdapter(Cursor stolenCarsCursor) {
+        this.stolenCarsCursor = stolenCarsCursor;
     }
 
-    //Provide a reference to the views used in the recycler view
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
 
@@ -36,11 +36,13 @@ public class StolenCarsAdapter extends RecyclerView.Adapter<StolenCarsAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position){
         CardView cardView = holder.cardView;
         TextView textView = (TextView) cardView.findViewById(R.id.stolen_car_number);
-        textView.setText(stolenCarsNumbers[position]);
+        if (stolenCarsCursor.moveToPosition(position)) {
+            textView.setText(stolenCarsCursor.getString(0));
+        }
     }
 
     @Override
     public int getItemCount(){
-        return stolenCarsNumbers.length;
+        return stolenCarsCursor.getCount();
     }
 }
