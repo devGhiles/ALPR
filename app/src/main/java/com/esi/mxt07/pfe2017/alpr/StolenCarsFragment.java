@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class StolenCarsFragment extends Fragment {
+public class StolenCarsFragment extends Fragment implements StolenCarCardViewClickListener {
 
     private SQLiteDatabase db;
     private Cursor cursor;
@@ -30,10 +30,16 @@ public class StolenCarsFragment extends Fragment {
             cursor = db.query("Plate", new String[]{"PlateNumber"},
                     null, null, null, null, "PlateNumber ASC");
 
-            StolenCarsAdapter adapter = new StolenCarsAdapter(cursor);
+            StolenCarsAdapter adapter = new StolenCarsAdapter(cursor, this);
             stolenCarsRecycler.setAdapter(adapter);
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
             stolenCarsRecycler.setLayoutManager(layoutManager);
+            stolenCarsRecycler.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
             return stolenCarsRecycler;
 
         } catch (SQLiteException e) {
@@ -49,5 +55,10 @@ public class StolenCarsFragment extends Fragment {
         super.onDestroy();
         cursor.close();
         db.close();
+    }
+
+    @Override
+    public void onClick(int position) {
+        Toast.makeText(getActivity(), "Position: " + position, Toast.LENGTH_SHORT).show();
     }
 }
