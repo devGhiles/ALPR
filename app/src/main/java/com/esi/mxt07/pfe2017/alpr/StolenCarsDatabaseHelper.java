@@ -11,40 +11,18 @@ public class StolenCarsDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "stolen_cars"; // the name of our database
     private static final int DB_VERSION = 1; // the version of the database
 
-    private class UpdateDatabaseTask extends AsyncTask<Integer, Void, Void> {
-        private SQLiteDatabase db;
-
-        public UpdateDatabaseTask(SQLiteDatabase db) {
-            this.db = db;
-        }
-
-        @Override
-        protected Void doInBackground(Integer... params) {
-            if (params.length != 2) {
-                return null;
-            }
-
-            int oldVersion = params[0];
-            int newVersion = params[1];
-            updateDatabase(db, oldVersion, newVersion);
-            return null;
-        }
-    }
-
     public StolenCarsDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        new UpdateDatabaseTask(db).execute(0, DB_VERSION);
-//        updateDatabase(db, 0, DB_VERSION);
+        updateDatabase(db, 0, DB_VERSION);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        new UpdateDatabaseTask(db).execute(oldVersion, newVersion);
-//        updateDatabase(db, oldVersion, newVersion);
+        updateDatabase(db, oldVersion, newVersion);
     }
 
     private void updateDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
