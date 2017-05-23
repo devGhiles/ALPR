@@ -17,6 +17,7 @@ public class StolenCarsFragment extends Fragment implements StolenCarCardViewCli
 
     private SQLiteDatabase db;
     private Cursor cursor;
+    private StolenCarsAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,16 +31,10 @@ public class StolenCarsFragment extends Fragment implements StolenCarCardViewCli
             cursor = db.query("Plate", new String[]{"PlateNumber"},
                     null, null, null, null, "PlateNumber ASC");
 
-            StolenCarsAdapter adapter = new StolenCarsAdapter(cursor, this);
+            adapter = new StolenCarsAdapter(cursor, this);
             stolenCarsRecycler.setAdapter(adapter);
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
             stolenCarsRecycler.setLayoutManager(layoutManager);
-            stolenCarsRecycler.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
             return stolenCarsRecycler;
 
         } catch (SQLiteException e) {
@@ -58,7 +53,17 @@ public class StolenCarsFragment extends Fragment implements StolenCarCardViewCli
     }
 
     @Override
-    public void onClick(int position) {
-        Toast.makeText(getActivity(), "Position: " + position, Toast.LENGTH_SHORT).show();
+    public void onClick(String plateNumber) {
+        try {
+            StolenCarsDatabaseHelper helper = new StolenCarsDatabaseHelper(getActivity());
+            SQLiteDatabase db = helper.getWritableDatabase();
+            helper.deletePlate(db, plateNumber);
+            cursor = this.db.query("Plate", new String[]{"PlateNumber"},
+                    null, null, null, null, "PlateNumber ASC");
+            adapter.changeCursor(cursor);
+        } catch (SQLiteException e) {
+            Toast.makeText(getActivity(), R.string.stolen_cars_database_unavailable,
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }

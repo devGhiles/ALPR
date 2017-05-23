@@ -38,22 +38,29 @@ public class StolenCarsAdapter extends RecyclerView.Adapter<StolenCarsAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickListener.onClick(position);
-            }
-        });
         TextView textView = (TextView) cardView.findViewById(R.id.stolen_car_number);
         if (stolenCarsCursor.moveToPosition(position)) {
-            textView.setText(stolenCarsCursor.getString(0));
+            final String plateNumber = stolenCarsCursor.getString(0);
+            textView.setText(plateNumber);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickListener.onClick(plateNumber);
+                }
+            });
         }
     }
 
     @Override
     public int getItemCount() {
         return stolenCarsCursor.getCount();
+    }
+
+    public void changeCursor(Cursor cursor) {
+        this.stolenCarsCursor.close();
+        this.stolenCarsCursor = cursor;
+        notifyDataSetChanged();
     }
 }

@@ -29,32 +29,32 @@ public class StolenCarsDatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE Plate ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "PlateNumber TEXT);");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
-            insertPlate(db, "AZE987");
-            insertPlate(db, "WXC321");
+            insertPlate(db, "AAA111");
+            insertPlate(db, "AAA222");
+            insertPlate(db, "AAA333");
+            insertPlate(db, "AAA444");
+            insertPlate(db, "AAA555");
+            insertPlate(db, "AAA666");
+            insertPlate(db, "AAA777");
+            insertPlate(db, "AAA888");
+            insertPlate(db, "AAA999");
+            insertPlate(db, "AAA000");
+            insertPlate(db, "BBB111");
+            insertPlate(db, "BBB222");
+            insertPlate(db, "BBB333");
+            insertPlate(db, "BBB444");
+            insertPlate(db, "BBB555");
+            insertPlate(db, "BBB666");
         }
     }
 
-    private void insertPlate(SQLiteDatabase db, String plateNumber) {
+    public void insertPlate(SQLiteDatabase db, String plateNumber) {
         ContentValues plateValues = new ContentValues();
         plateValues.put("PlateNumber", plateNumber);
         db.insert("Plate", null, plateValues);
     }
 
-    private void deletePlate(SQLiteDatabase db, String plateNumber) {
+    public void deletePlate(SQLiteDatabase db, String plateNumber) {
         db.delete("Plate", "PlateNumber = ?", new String[] {plateNumber});
     }
 }
