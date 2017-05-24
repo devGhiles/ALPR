@@ -21,4 +21,8 @@
     <string name="close">Close</string>
     <string name="stolen_cars">Stolen cars</string>
     <string name="stolen_cars_database_unavailable">Stolen cars database unavailable</string>
+    <string name="confirm_deletion">Confirm deletion</string>
+    <string name="confirm_plate_deletion_message">"Are you sure you want to delete the plate number "</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

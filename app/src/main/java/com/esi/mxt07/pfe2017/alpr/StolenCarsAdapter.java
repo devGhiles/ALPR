@@ -15,6 +15,10 @@ public class StolenCarsAdapter extends RecyclerView.Adapter<StolenCarsAdapter.Vi
     private Cursor stolenCarsCursor;
     private StolenCarCardViewClickListener clickListener;
 
+    public interface StolenCarCardViewClickListener {
+        void onClick(String plateNumber);
+    }
+
     public StolenCarsAdapter(Cursor stolenCarsCursor, StolenCarCardViewClickListener clickListener) {
         this.stolenCarsCursor = stolenCarsCursor;
         this.clickListener = clickListener;
