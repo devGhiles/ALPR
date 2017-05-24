@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         fragmentManager.beginTransaction()
                 .replace(R.id.content_main, new RecognitionFragment())
                 .commit();
+
     }
 
     @Override
