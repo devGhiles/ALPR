@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         fragmentManager.beginTransaction()
                 .replace(R.id.content_main, new RecognitionFragment())
                 .commit();
+        navigationView.setCheckedItem(R.id.nav_recognition);
     }
 
     @Override
@@ -106,6 +107,10 @@ public class MainActivity extends AppCompatActivity
             aboutUsDialogFragment.show(getSupportFragmentManager(), "MainActivity");
 
         } else if (id == R.id.nav_users) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_main, new UsersFragment())
+                    .commit();
+            toolbar.setTitle(R.string.users);
 
         } else if (id == R.id.nav_stolen_cars) {
             fragmentManager.beginTransaction()

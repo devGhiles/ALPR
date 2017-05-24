@@ -29,4 +29,5 @@
     <string name="add_stolen_car_dialog_title">Add a stolen car</string>
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
+    <string name="users_database_unavailable">Cannot access users database</string>
 </resources>
