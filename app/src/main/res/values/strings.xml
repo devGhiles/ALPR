@@ -25,4 +25,8 @@
     <string name="confirm_plate_deletion_message">"Are you sure you want to delete the plate number "</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="add_stolen_car_message">Please enter the license plate number:</string>
+    <string name="add_stolen_car_dialog_title">Add a stolen car</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
 </resources>

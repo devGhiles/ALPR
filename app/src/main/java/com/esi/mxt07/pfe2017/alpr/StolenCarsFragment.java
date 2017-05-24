@@ -12,10 +12,15 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class StolenCarsFragment extends Fragment implements StolenCarsAdapter.StolenCarCardViewClickListener {
@@ -126,7 +131,31 @@ public class StolenCarsFragment extends Fragment implements StolenCarsAdapter.St
         fabInsertPlate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: AlertDialog for reading the plate number
+                LinearLayout layout = new LinearLayout(getActivity());
+                layout.setOrientation(LinearLayout.VERTICAL);
+                layout.setPadding(getResources().getDimensionPixelSize(R.dimen.dialog_content_padding),
+                        getResources().getDimensionPixelSize(R.dimen.dialog_content_padding),
+                        getResources().getDimensionPixelSize(R.dimen.dialog_content_padding),
+                        getResources().getDimensionPixelSize(R.dimen.dialog_content_padding)
+                );
+                TextView tvAddPlate = new TextView(getActivity());
+                tvAddPlate.setText(R.string.add_stolen_car_message);
+                final EditText etPlateNumber = new EditText(getActivity());
+                etPlateNumber.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS |
+                        InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
+                layout.addView(tvAddPlate);
+                layout.addView(etPlateNumber);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.add_stolen_car_dialog_title)
+                        .setView(layout)
+                        .setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                new InsertPlateTask().execute(etPlateNumber.getText().toString());
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, null)
+                        .show();
             }
         });
 
@@ -142,6 +171,7 @@ public class StolenCarsFragment extends Fragment implements StolenCarsAdapter.St
         db.close();
     }
 
+    // Stolen car card views listener
     @Override
     public void onClick(final String plateNumber) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
